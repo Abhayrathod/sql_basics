@@ -1,0 +1,54 @@
+->help
+-> psql --help
+->\q to quit
+
+\l to list databases
+
+
+create database
+-> CREATE DATABASE test;
+use uppercase so to spot difference between sql commands and general syntax
+
+
+
+
+connect to a database
+-> psql -h localhost -p 5432 -U username dbname
+-> psql -U postgres
+	or
+connect to psql and list database by  \l and run below command
+-> \c dbname
+  \c can be used to switch between database after connecting
+
+
+
+
+delete database
+-> DROP DATABASE test;
+	this is a dangerous command use very carefully
+
+
+
+
+create table without constraints
+->CREATE TABLE person( 		-->> after writing these press enter , the query won;t be executed unless semicolon is placed
+-(> id INT,
+-(> first_name VARCHAR(50),
+-(> last_name VARCHAR(50),
+-(> gender varchar(10),
+-(> date_of_birth DATE);	-->> after this the query will be executed
+
+-> \d		--> list all the tables in the database
+-> \d tablename	--> list all the column of the table
+
+
+
+
+create table with constraints
+-> CREATE TABLE person(
+-(> id BIGSERIAL NOT NULL PRIMARY KEY,
+-(> first_name VARCHAR(50) NOT NULL,
+-(> last_name VARCHAR(50) NOT NULL,
+-(> gender VARCHAR(5) NOT NULL,
+-(> date_of_birth DATE NOT NULL,
+-(> email VARCHAR(150));
